@@ -1,0 +1,117 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package ec.edu.ups.bibliotecaoa.clases;
+
+/**
+ *
+ * @author olive
+ */
+public class Libro {
+    
+    // ISBN en String porque este tiene - en su composicion de 13 numeros
+    private String ISBN;
+    private String titulo;
+    private int añoDePublicacion;
+    private String genero;
+    private boolean disponible;
+    private String editorial;
+    private Autor autor;
+    
+    public Libro(){
+    }
+
+    public Libro(String ISBN, String titulo, int añoDePublicacion, String genero, boolean disponible, String editorial) {
+        this.ISBN = ISBN;
+        this.titulo = titulo;
+        this.añoDePublicacion = añoDePublicacion;
+        this.genero = genero;
+        this.disponible = disponible;
+        this.editorial = editorial;
+    }
+
+    public Libro(String ISBN, String titulo, int añoDePublicacion, String genero, boolean disponible, String editorial, Autor autor) {
+        this.ISBN = ISBN;
+        this.titulo = titulo;
+        this.añoDePublicacion = añoDePublicacion;
+        this.genero = genero;
+        this.disponible = disponible;
+        this.editorial = editorial;
+        this.autor = autor;
+    }
+    
+    
+
+    public String getISBN() {
+        return ISBN;
+    }
+
+    public void setISBN(String ISBN) {
+        this.ISBN = ISBN;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public int getAñoDePublicacion() {
+        return añoDePublicacion;
+    }
+
+    public void setAñoDePublicacion(int añoDePublicacion) {
+        this.añoDePublicacion = añoDePublicacion;
+    }
+
+    public String getGenero() {
+        return genero;
+    }
+
+    public void setGenero(String genero) {
+        this.genero = genero;
+    }
+
+    public boolean isDisponible() {
+        return disponible;
+    }
+
+    public void setDisponible(boolean disponible) {
+        this.disponible = disponible;
+    }
+
+    public String getEditorial() {
+        return editorial;
+    }
+
+    public void setEditorial(String editorial) {
+        this.editorial = editorial;
+    }
+
+    public Autor getAutor() {
+        return autor;
+    }
+
+    public void setAutor(Autor autor) {
+        this.autor = autor;
+    }
+
+    @Override
+    public String toString() {
+        return "Libro{" + "ISBN=" + ISBN + ", titulo=" + titulo + ", añoDePublicacion=" + añoDePublicacion + ", genero=" + genero + ", disponible=" + disponible + ", editorial=" + editorial + ", autor=" + autor + '}';
+    }
+    
+    public void reservarLibro(){
+        this.disponible = false;
+    }
+    
+    public void devolverLibro(){
+        this.disponible = true;
+    }
+    
+    
+    
+}
