@@ -69,14 +69,26 @@ public class Prestamo {
     @Override
     public String toString() {
         if(fechaDeDevolucion==null && fechaDePrestamo==null){
-            return "Prestamo{" + "codigo=" + codigo +  ", pedidoHecho=" + pedidoHecho + ", libros=" + libros + '}';
+            return "----PRESTAMO----" + "\n" +
+                    "-codigo=" + codigo +  "\n" +
+                    "-pedidoHecho=" + pedidoHecho + "\n" +
+                    "-libros=" + "\n" + libros ;
         }
         
         else if(fechaDeDevolucion==null){
-            return "Prestamo{" + "codigo=" + codigo + ",fechaDePrestamo= " + fechaDePrestamo + ", pedidoHecho=" + pedidoHecho + ", libros=" + libros + '}';
+            return "----Prestamo----" + "\n" +
+                   "-codigo: " + codigo + "\n" +
+                   "-fechaDePrestamo: " + fechaDePrestamo + "\n" +
+                   "-pedidoHecho: " + pedidoHecho + "\n" +
+                   "-libro: "+ "\n" + libros ;
         }
         else{
-        return "Prestamo{" + "codigo=" + codigo + ", fechaDePrestamo=" + fechaDePrestamo + ", fechaDeDevolucion=" + fechaDeDevolucion + ", pedidoHecho=" + pedidoHecho + ", libros=" + libros + '}';
+        return "----PRESTAMO----: " + "\n" +
+               "-codigo=" + codigo + "\n" +
+               "-fechaDePrestamo=" + fechaDePrestamo + "\n" +
+               "-fechaDeDevolucion=" + fechaDeDevolucion + "\n" +
+               "-pedidoHecho=" + pedidoHecho + "\n" +
+                libros ;
         }
     }
     

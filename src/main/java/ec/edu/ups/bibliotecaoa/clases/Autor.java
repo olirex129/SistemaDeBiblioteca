@@ -46,7 +46,9 @@ public class Autor extends Persona{
     @Override
     public String toString() {
         String resultado = super.toString();
-        resultado += "Autor{" + "apellido=" + apellido + ", nacionalidad=" + nacionalidad + '}';
+        resultado += "\n" +
+               "\t" +"Apellido=" + apellido + "\n" +
+               "\t" +"Nacionalidad=" + nacionalidad ;
         return resultado;
     }
     

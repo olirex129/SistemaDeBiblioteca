@@ -23,45 +23,46 @@ public class Main {
         
         
         
-        System.out.println("Pedido de Libros");
-        System.out.println("Antes de ingresar al menu");
-        System.out.println("Registre su cuenta");
+        System.out.println("----PEDIDOS DE LIBROS----");
+        System.out.println("--Antes de ingresar al menu");
+        System.out.println("--Registre su cuenta");
         
         // inicializando el Scanner
         Scanner teclado = new Scanner(System.in);
         
         // creacion de atributos basicos de la cuenta
         
-        System.out.println("Ingrese su nombre");
-        String nombre = teclado.next();
-        System.out.println("Ingrese su año de naciemiento");
+        System.out.println("Ingrese su nombre: ");
+        String nombre = teclado.nextLine();
+        System.out.println("Ingrese su año de nacimiento: ");
         int añoDeNacimiento = teclado.nextInt();
-        System.out.println("Ingrese su numero de telefono");
-        String telefono = teclado.next();
+        teclado.nextLine();
+        System.out.println("Ingrese su numero de telefono: ");
+        String telefono = teclado.nextLine();
         
         // creacion de la cuenta (atributo fuerte del usuario
         System.out.println("-----------------------------------");
-        System.out.println("Ingrese su correo ");
-        String correoUsuario = teclado.next();
-        System.out.println("Ingrese su contraseña ");
-        String contraseñaUsuario = teclado.next();
+        System.out.println("Ingrese su correo: ");
+        String correoUsuario = teclado.nextLine();
+        System.out.println("Ingrese su contraseña: ");
+        String contraseñaUsuario = teclado.nextLine();
         
         // inicio de sesion
         
         String correo = null;
         String contraseña = null;
         
-        System.out.println("Inicie sesion");
+        System.out.println("---INICIE SESION---");
         do{
-        System.out.println("Ingrese su correo");
-        correo = teclado.next();
-        System.out.println("Ingrese su contraseña");
-        contraseña = teclado.next();
+        System.out.println("Ingrese su correo: ");
+        correo = teclado.nextLine();
+        System.out.println("Ingrese su contraseña: ");
+        contraseña = teclado.nextLine();
         if(!correoUsuario.equals(correo)){
-            System.out.println("Su correo no existe");
+            System.out.println("Su correo no existe: ");
         }
         if(!contraseñaUsuario.equals(contraseña)){
-            System.out.println("Su contraseña o correo es incorrecto");
+            System.out.println("X-Su contraseña o correo es incorrecto-X");
         }
         }while(!correoUsuario.equals(correo) || !contraseñaUsuario.equals(contraseña));
         
@@ -83,7 +84,7 @@ public class Main {
         // creacion de autores para los libros
         
         Autor stephen = new Autor("King", "Stephen", "Estadounidense", 1947);
-        Autor jane = new Autor("Austen", "Jane", "Británica", 1775);
+        Autor jane = new Autor("Austen", "Jane", "Britanica", 1775);
         Autor miguel = new Autor("deCervantes", "Miguel", "Español", 1547);
         
         // creacion de los libros en existencia 
@@ -101,7 +102,7 @@ public class Main {
 
         // Libros con el autor Miguel de Cervantes
         
-        librosEnExistencia.add(new Libro("978-8-42-041214-6", "DonQuijotedelaMancha", 1605, "Clásico", true, "Juan de la Cuesta", miguel));
+        librosEnExistencia.add(new Libro("978-8-42-041214-6", "DonQuijotedelaMancha", 1605, "Clasico", true, "Juan de la Cuesta", miguel));
         
         do{
             System.out.println("----Menu----");
@@ -119,6 +120,7 @@ public class Main {
                 case 1:
                     for (Libro libro : librosEnExistencia) {
                         System.out.println(libro);
+                        System.out.println();
                     }
                     break;
                     
@@ -131,10 +133,10 @@ public class Main {
                     
                     do{
                         // El menu
-                        System.out.println("Ingrese el titulo del libro y su autor para ingresar su libro al prestamo");
-                        System.out.println("Ingrese el titulo del libro buscado");
+                        System.out.println("--Ingrese el titulo del libro y su autor para ingresar su libro al prestamo--");
+                        System.out.println("-Ingrese el titulo del libro buscado: ");
                         String tituloBuscado = teclado.next();
-                        System.out.println("Ingrese el nombre del autor del libro buscado");
+                        System.out.println("-Ingrese el nombre del autor del libro buscado: ");
                         String nombreDelAutorBuscado = teclado.next();
                         
                         // Se busca el libro por titulo y nombre del autor
@@ -146,7 +148,7 @@ public class Main {
                             if(tituloBuscado.equalsIgnoreCase(libro.getTitulo()) && nombreDelAutorBuscado.equalsIgnoreCase(libro.getAutor().getNombre())){
                                 
                                 if(!libro.isDisponible()){
-                                    System.out.println("Su libro no esta disponible");
+                                    System.out.println("X-Su libro no esta disponible-X");
                                 }
                                 else{
                                     prestamo.agregarLibro(libro);
@@ -161,7 +163,7 @@ public class Main {
                         
                         }
                         if(!seEncontro){
-                                System.out.println("No se pudo encontrar su libro");
+                                System.out.println("!!No se pudo encontrar su libro");
                             }
                         
                         System.out.println("¿Quiere pedir otro libro?");
@@ -180,7 +182,8 @@ public class Main {
                     
                 case 3:
                     if(prestamo.getListaLibros().size()==0){
-                        System.out.println("aun no ha agragado nada al prestamo");
+                        System.out.println("      !!ERROR!!");
+                        System.out.println("Aun no ha agragado nada al prestamo");
                     }
                     else{
                         System.out.println(prestamo);
@@ -189,6 +192,7 @@ public class Main {
                     
                 case 4:
                     if(prestamo.getListaLibros().size()==0){
+                        System.out.println("       !!ADVERTENCIA!!");
                         System.out.println("No puede hacer el prestamo si no a añadido ningun libro");
                     }
                     else{
@@ -197,26 +201,31 @@ public class Main {
                             prestamo.setPedidoHecho();
                             prestamo.setFechaDePrestamo(fechaDePrestamo);
                             usuario.setPrestamo(prestamo);
-                            System.out.println("Su prestamo esta hecho");
+                            System.out.println("// Su prestamo esta hecho //");
                         }
                         else{
-                            System.out.println("Ya hizo su pedido");
+                            System.out.println("// Ya hizo su pedido //");
                         }
                     }
                     break;
                     
                 case 5:
-                    System.out.println("Que libro quiere devolver");
-                    System.out.println("Titulo del libro");
+                    System.out.println("--Que libro quiere devolver?");
+                    System.out.println("Titulo del libro: ");
                     String libroDevolver = teclado.next();
-                    System.out.println("Titulo del autor");
+                    System.out.println("Titulo del autor: ");
                     String libroDevolverAutor = teclado.next();
+                    
+                    boolean existeLibro=false;
                     for (Libro libro : librosEnExistencia){
+                        
+                        
                             
                             if(libroDevolver.equalsIgnoreCase(libro.getTitulo()) && libroDevolverAutor.equalsIgnoreCase(libro.getAutor().getNombre())){
+                                existeLibro=true;
                                 
                                 if(libro.isDisponible()){
-                                    System.out.println("No puede devolver un libro que está disponible");
+                                    System.out.println("!!No puede devolver un libro que está disponible");
                                 }
                                 else{
                                     System.out.println("Se a devuelto el libro: " + libro.getTitulo());
@@ -226,6 +235,10 @@ public class Main {
                             }
                     
                 
+                    }
+                    if(!existeLibro){
+                        System.out.println("             !!ERROR!!");
+                        System.out.println("El titulo del libro o el autor no existen");
                     }
                     break;
             }

@@ -101,7 +101,14 @@ public class Libro {
 
     @Override
     public String toString() {
-        return "Libro{" + "ISBN=" + ISBN + ", titulo=" + titulo + ", añoDePublicacion=" + añoDePublicacion + ", genero=" + genero + ", disponible=" + disponible + ", editorial=" + editorial + ", autor=" + autor + '}';
+        return "Libro" + "\n" +
+               "-ISBN:" + ISBN + "\n" +
+               "-Titulo: " + titulo + "\n" +
+               "-Año de publicacion: " + añoDePublicacion + "\n" +
+               "-Genero: " + genero + "\n" +
+               "-Disponible: " + disponible + "\n" +
+               "-Editorial: " + editorial + "\n" +
+               "-Autor: " + autor ;
     }
     
     public void reservarLibro(){

@@ -40,7 +40,9 @@ public class Persona {
 
     @Override
     public String toString() {
-        return "Persona{" + "nombre=" + nombre + ", añoDeNacimiento=" + añoDeNacimiento + '}';
+        return  
+                "\n" + "\t" +"Nombre=" + nombre + "\n" +
+                "\t" + "AñoDeNacimiento=" + añoDeNacimiento ;
     }   
     
     
