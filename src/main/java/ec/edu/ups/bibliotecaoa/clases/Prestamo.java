@@ -10,7 +10,7 @@ import java.util.List;
 
 /**
  *
- * @author olive
+ * @author oliver
  */
 public class Prestamo {
     

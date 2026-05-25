@@ -6,7 +6,7 @@ package ec.edu.ups.bibliotecaoa.clases;
 
 /**
  *
- * @author olive
+ * @author oliver
  */
 public class Cuenta {
     
