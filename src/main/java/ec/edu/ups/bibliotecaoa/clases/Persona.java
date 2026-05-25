@@ -6,7 +6,7 @@ package ec.edu.ups.bibliotecaoa.clases;
 
 /**
  *
- * @author oliver
+ * @author olive
  */
 public class Persona {
     

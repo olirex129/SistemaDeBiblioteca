@@ -11,7 +11,7 @@ import java.util.Set;
 
 /**
  *
- * @author oliver
+ * @author olive
  */
 public class Libro {
     
