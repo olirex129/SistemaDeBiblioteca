@@ -162,6 +162,7 @@ public class Main {
                     if(prestamo.getListaLibros().size()==0){
                         System.out.println("      !!ERROR!!");
                         System.out.println("Aun no ha agragado nada al prestamo");
+                        System.out.println("o devolvio todos los libros prestados");
                     }
                     else{
                         System.out.println(prestamo);
@@ -178,9 +179,8 @@ public class Main {
                     else{
                         if(!prestamo.isPedidoHecho()){
                             LocalDate fechaDePrestamo = LocalDate.now(); 
-                            prestamo.setPedidoHecho();
-                            prestamo.setFechaDePrestamo(fechaDePrestamo);
-                            usuario.setPrestamo(prestamo);
+                            prestamo.prestamoHecho(fechaDePrestamo);
+                            usuario.añadirPrestamo(prestamo);
                             System.out.println("// Su prestamo esta hecho //");
                         }
                         else{

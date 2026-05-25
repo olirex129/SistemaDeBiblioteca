@@ -6,7 +6,7 @@ package ec.edu.ups.bibliotecaoa.clases;
 
 /**
  *
- * @author olive
+ * @author oliver v
  */
 public class Usuario extends Persona{
     
@@ -44,8 +44,10 @@ public class Usuario extends Persona{
     public Prestamo getPrestamo() {
         return prestamo;
     }
+    
+    //metodo
 
-    public void setPrestamo(Prestamo prestamo) {
+    public void añadirPrestamo(Prestamo prestamo) {
         this.prestamo = prestamo;
     }
 

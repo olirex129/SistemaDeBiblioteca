@@ -6,10 +6,10 @@ package ec.edu.ups.bibliotecaoa.clases;
 
 /**
  *
- * @author olive
+ * @author oliver v
  */
 public class Persona {
-    
+    //
     private String nombre;
     
     private int añoDeNacimiento;

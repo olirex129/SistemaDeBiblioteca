@@ -10,7 +10,7 @@ import java.util.List;
 
 /**
  *
- * @author olive
+ * @author oliver
  */
 public class Prestamo {
     
@@ -51,18 +51,21 @@ public class Prestamo {
     public boolean isPedidoHecho() {
         return pedidoHecho;
     }
+    public List<Libro> getListaLibros(){
+    return libros;
+    }
+    
+    ////
 
-    public void setPedidoHecho() {
+    public void prestamoHecho(LocalDate fechaDePrestamo) {
         this.pedidoHecho = true;
+        this.fechaDePrestamo = fechaDePrestamo;
     }
     
     public void agregarLibro(Libro libro){
         this.libros.add(libro);
     }
     
-    public List<Libro> getListaLibros(){
-    return libros;
-} 
     
     // este toString sirve para imprimir bien lo que necesita ver el usuario 
 

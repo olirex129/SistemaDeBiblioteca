@@ -11,7 +11,7 @@ import java.util.Set;
 
 /**
  *
- * @author olive
+ * @author oliver
  */
 public class Libro {
     
@@ -115,6 +115,8 @@ public class Libro {
                "-Editorial: " + editorial + "\n" +
                "-Autor: " + autor ;
     }
+    
+    
     
     public void reservarLibro(){
         this.disponible = false;
