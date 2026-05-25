@@ -41,10 +41,6 @@ public class Usuario extends Persona{
         return cuenta;
     }
 
-    public void setCuenta(Cuenta cuenta) {
-        this.cuenta = cuenta;
-    }
-
     public Prestamo getPrestamo() {
         return prestamo;
     }

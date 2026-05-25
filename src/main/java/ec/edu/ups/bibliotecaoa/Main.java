@@ -141,36 +141,12 @@ public class Main {
                         
                         // Se busca el libro por titulo y nombre del autor
                         
-                        boolean seEncontro = false;
                         
-                        for (Libro libro : librosEnExistencia){
-                            
-                            if(tituloBuscado.equalsIgnoreCase(libro.getTitulo()) && nombreDelAutorBuscado.equalsIgnoreCase(libro.getAutor().getNombre())){
-                                
-                                if(!libro.isDisponible()){
-                                    System.out.println("X-Su libro no esta disponible-X");
-                                }
-                                else{
-                                    prestamo.agregarLibro(libro);
-                                    System.out.println("Se a añadido el libro: " + libro.getTitulo());
-                                    libro.reservarLibro();
-                                }
-                                seEncontro = true;
-                                
-                            }
-                            
-                           
-                        
-                        }
-                        if(!seEncontro){
-                                System.out.println("!!No se pudo encontrar su libro");
-                            }
+                        Libro.buscarLibro(librosEnExistencia, tituloBuscado, nombreDelAutorBuscado, prestamo);
                         
                         System.out.println("¿Quiere pedir otro libro?");
                         System.out.print("true/false: ");
                         pedirOtro = teclado.nextBoolean();
-                        
-                        
                         
                     }while(pedirOtro);
                     }
@@ -179,6 +155,8 @@ public class Main {
                     }
                     
                     break;
+                    
+                    // revisar que se tiene en el pedido
                     
                 case 3:
                     if(prestamo.getListaLibros().size()==0){
@@ -189,6 +167,8 @@ public class Main {
                         System.out.println(prestamo);
                     }
                     break;
+                    
+                    // Hacer el prestamo
                     
                 case 4:
                     if(prestamo.getListaLibros().size()==0){
@@ -209,37 +189,17 @@ public class Main {
                     }
                     break;
                     
+                    // devolucion
+                    
                 case 5:
                     System.out.println("--Que libro quiere devolver?");
                     System.out.println("Titulo del libro: ");
                     String libroDevolver = teclado.next();
-                    System.out.println("Titulo del autor: ");
+                    System.out.println("Nombre del autor: ");
                     String libroDevolverAutor = teclado.next();
                     
-                    boolean existeLibro=false;
-                    for (Libro libro : librosEnExistencia){
-                        
-                        
-                            
-                            if(libroDevolver.equalsIgnoreCase(libro.getTitulo()) && libroDevolverAutor.equalsIgnoreCase(libro.getAutor().getNombre())){
-                                existeLibro=true;
-                                
-                                if(libro.isDisponible()){
-                                    System.out.println("!!No puede devolver un libro que está disponible");
-                                }
-                                else{
-                                    System.out.println("Se a devuelto el libro: " + libro.getTitulo());
-                                    libro.devolverLibro();
-                                }
-                                
-                            }
+                    Libro.devolverLibro(librosEnExistencia, libroDevolver, libroDevolverAutor, prestamo);
                     
-                
-                    }
-                    if(!existeLibro){
-                        System.out.println("             !!ERROR!!");
-                        System.out.println("El titulo del libro o el autor no existen");
-                    }
                     break;
             }
             

@@ -4,6 +4,11 @@
  */
 package ec.edu.ups.bibliotecaoa.clases;
 
+import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 /**
  *
  * @author olive
@@ -117,6 +122,72 @@ public class Libro {
     
     public void devolverLibro(){
         this.disponible = true;
+    }
+    
+    public static void buscarLibro(List<Libro> librosEnExistencia,String tituloBuscado,String nombreDelAutorBuscado,Prestamo prestamo){
+        
+        boolean seEncontro = false;
+                        
+                        for (Libro libro : librosEnExistencia){
+                            
+                            if(tituloBuscado.equalsIgnoreCase(libro.getTitulo()) && nombreDelAutorBuscado.equalsIgnoreCase(libro.getAutor().getNombre())){
+                                
+                                if(!libro.isDisponible()){
+                                    System.out.println("X-Su libro no esta disponible-X");
+                                }
+                                else{
+                                    prestamo.agregarLibro(libro);
+                                    System.out.println("Se a añadido el libro: " + libro.getTitulo());
+                                    libro.reservarLibro();
+                                }
+                                seEncontro = true;
+                                
+                            }
+                        }
+                        if(!seEncontro){
+                                System.out.println("!!No se pudo encontrar su libro");
+                            }
+    }
+    
+    public static void devolverLibro(List<Libro> librosEnExistencia,String libroDevolver, String libroDevolverAutor,Prestamo prestamo){
+        boolean existeLibro = false;
+                    for (Libro libro : librosEnExistencia){
+                        
+                        
+                            
+                            if(libroDevolver.equalsIgnoreCase(libro.getTitulo()) && libroDevolverAutor.equalsIgnoreCase(libro.getAutor().getNombre())){
+                                
+                                existeLibro=true;
+                                
+                                if(libro.isDisponible()){
+                                    System.out.println("!!No puede devolver un libro que está disponible");
+                                }
+                                else{
+                                    System.out.println("Se a devuelto el libro: " + libro.getTitulo());
+                                    libro.devolverLibro();
+                                    LocalDate fechaDeDevolucion = LocalDate.now();
+                                    prestamo.setFechaDeDevolucion(fechaDeDevolucion);
+                                    
+                                }
+                                Libro libroRemover = null;
+                                if(prestamo.getListaLibros().size()!=0){
+                                    for(Libro libro1 : prestamo.getListaLibros()){
+                                        if(libro1.equals(libro)){
+                                            libroRemover = libro1;
+                                        }
+                                        
+                                    }
+                                    prestamo.getListaLibros().remove(libroRemover);
+                                }
+                                
+                            }
+                    
+                
+                    }
+                    if(!existeLibro){
+                        System.out.println("             !!ERROR!!");
+                        System.out.println("El titulo del libro o el autor no existen");
+                    }
     }
     
     
